@@ -9,6 +9,7 @@ namespace Microsoft.OData.Service.Sample.MediaEntity.Models
 {    
     // Mark the entity to have stream
     // The photo stream is stored in file system, it could be stored in database as byte array too.
+    // This implies a no-named property for stream and conversion url to access is ~/entityset(key)/$value
     [MediaType]
     public class Photo
     {
@@ -21,6 +22,7 @@ namespace Microsoft.OData.Service.Sample.MediaEntity.Models
         public string Type { set; get; }
 
         // Will not be a database column but an Edm model property
+        // The stream data is stored in filesystem but not database.
         [NotMapped]
         public Stream Smallpreview { get; set; }
     }
